@@ -1,0 +1,5 @@
+{
+  "library": "src/Our.Umbraco.AnimateOnScroll",
+  "pluginFolder": "Our.Umbraco.AnimateOnScroll",
+  "site": ".website"
+}

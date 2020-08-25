@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <RootNamespace>Our.Umbraco.AnimateOnScroll</RootNamespace>
+
+		<IncludeContentInPack>true</IncludeContentInPack>
+		<ContentTargetFolders>content</ContentTargetFolders>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<PackageIcon>icon.png</PackageIcon>
+		<RepositoryUrl>https://github.com/madsoulswe/Our.Umbraco.AnimateOnScroll/</RepositoryUrl>
+		<RepositoryType>GIT</RepositoryType>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/madsoulswe/Our.Umbraco.AnimateOnScroll/</PackageProjectUrl>
+
+	</PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="UmbracoCms.Web" Version="8.6.2" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Content Include="App_Plugins\**\*" />
+		<Compile Remove="**\*" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Include="Controllers\**\*" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="App_Plugins\Our.Umbraco.AnimateOnScroll\Css\animateonscroll.css" />
+	  <None Remove="App_Plugins\Our.Umbraco.AnimateOnScroll\Js\services.js" />
+	  <None Remove="App_Plugins\Our.Umbraco.AnimateOnScroll\Js\editor.controller.js" />
+	  <None Remove="App_Plugins\Our.Umbraco.AnimateOnScroll\Views\editor.html" />
+	  <Compile Include="Models\Animation.cs" />
+	  <Compile Include="ValueConverters\AnimateOnScrollValueConverter.cs" />
+	  <None Include="..\..\icon.png">
+	    <Pack>True</Pack>
+	    <PackagePath></PackagePath>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="App_Plugins\Our.Umbraco.AnimateOnScroll\Vendor\" />
+	</ItemGroup>
+</Project>

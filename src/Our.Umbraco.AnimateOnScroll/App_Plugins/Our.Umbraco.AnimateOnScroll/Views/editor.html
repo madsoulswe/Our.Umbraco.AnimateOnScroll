@@ -1,0 +1,114 @@
+﻿<div class="animate-on-scroll" ng-controller="AnimateOnScroll.EditorController as vm">
+    <div class="toggle">
+        <umb-button ng-show="!model.value" action="vm.add()" type="button" button-style="info" icon="icon-add" label="Add animation"></umb-button>
+        <umb-button ng-show="model.value && !vm.edit" action="vm.edit = true" type="button" button-style="info" label="Edit '{{model.value.animation}}' animation {{model.value.disabled ? '(disabled)':''}}"></umb-button>
+        <umb-button ng-show="model.value && vm.edit" action="vm.edit = false" type="button" button-style="info" label="Close"></umb-button>
+    </div>
+    <form name="animation" class="form-horizontal" novalidate>
+        <div class="flex mt2" ng-show="vm.edit == true">
+            <div class="flx-b2 mr3 umb-box">
+                <div class="umb-box-content">
+
+                    <div class="control-group">
+                        <label class="control-label" title="">Animation</label>
+                        <div class="controls ml0">
+                            <select ng-model="model.value.animation" class="input-medium">
+                                <option ng-repeat="animation in vm.animations" value="{{animation}}">{{animation}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Easing</label>
+                        <div class="controls ml0">
+                            <select ng-model="model.value.easing" class="input-medium">
+                                <option ng-repeat="easing in vm.easings" value="{{easing}}">{{easing}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="" class="control-label" title="Defines which position of the element regarding to window should trigger the animation">Anchor</label>
+                        <div class="controls ml0">
+                            <select ng-model="model.value.anchor" class="input-medium">
+                                <option ng-repeat="anchor in vm.anchors" value="{{anchor}}">{{anchor}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button"
+                            ng-show="vm.canAnimate()"
+                            class="btn btn-action aos-init w-100"
+                            data-aos="{{ vm.animate ? model.value.animation : ''}}"
+                            ng-class="{ 'aos-animate' : vm.animating }"
+                            data-aos-offset="{{model.value.offset}}"
+                            data-aos-duration="{{model.value.duration}}"
+                            data-aos-easing="{{model.value.easing}}"
+                            data-aos-mirror="{{model.value.mirror}}"
+                            data-aos-once="{{model.value.once}}"
+                            data-aos-anchor-placement="{{model.value.anchor}}"
+                            ng-click="vm.testAnimation()">
+                        Test animation
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="flx-b2 mr3 umb-box">
+                <div class="umb-box-content">
+                    <div class="control-group">
+                        <label class="control-label" title="Values from 0 to 3000, with step 50ms">Duration</label>
+                        <div class="controls">
+                            <input type="number" ng-model="model.value.duration" class="input-mini" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" title="Values from 0 to 3000, with step 50ms">Delay</label>
+                        <div class="controls">
+                            <input type="number" ng-model="model.value.delay" class="input-mini" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" title="Offset (in px) from the original trigger point">Offset</label>
+                        <div class="controls">
+                            <input type="number" ng-model="model.value.offset" class="input-mini" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="flx-b2 umb-box">
+                <div class="umb-box-content">
+                    <div class="control-group">
+                        <label class="control-label" title="Whether elements should animate out while scrolling past them">Mirror</label>
+                        <div class="controls">
+                            <umb-toggle input-id="mirror" checked="model.value.mirror" on-click="model.value.mirror = !model.value.mirror" show-labels="false" label-position="right" label-on="Yes" label-off="No"></umb-toggle>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" title="Whether animation should happen only once - while scrolling down">Once</label>
+                        <div class="controls">
+                            <umb-toggle input-id="once" checked="model.value.once" on-click="model.value.once = !model.value.once" show-labels="false" label-position="right" label-on="Yes" label-off="No"></umb-toggle>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Disabled</label>
+                        <div class="controls">
+                            <umb-toggle input-id="once" checked="model.value.disabled" on-click="model.value.disabled = !model.value.disabled" show-labels="false" label-position="right" label-on="Yes" label-off="No"></umb-toggle>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <umb-button ng-show="model.value" action="vm.remove()" type="button" button-style="danger" icon="icon-trash" label="Remove animation"></umb-button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+
+
+</div>

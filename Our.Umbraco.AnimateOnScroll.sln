@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Our.Umbraco.AnimateOnScroll.Site", ".website\Our.Umbraco.AnimateOnScroll.Site.csproj", "{38D15609-6F2E-4A85-A2F4-7BA082F20304}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Umbraco.AnimateOnScroll", "src\Our.Umbraco.AnimateOnScroll\Our.Umbraco.AnimateOnScroll.csproj", "{167FC4E5-EC25-40D8-BB57-B33A27C234CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Develop", "Develop", "{61E3B729-5550-41F2-9B85-124724B9A1B6}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build.yml = .github\workflows\build.yml
+		gulpfile.js = gulpfile.js
+		package.json = package.json
+		package.xml = package.xml
+		paths.json = paths.json
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38D15609-6F2E-4A85-A2F4-7BA082F20304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38D15609-6F2E-4A85-A2F4-7BA082F20304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38D15609-6F2E-4A85-A2F4-7BA082F20304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38D15609-6F2E-4A85-A2F4-7BA082F20304}.Release|Any CPU.Build.0 = Release|Any CPU
+		{167FC4E5-EC25-40D8-BB57-B33A27C234CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{167FC4E5-EC25-40D8-BB57-B33A27C234CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{167FC4E5-EC25-40D8-BB57-B33A27C234CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{167FC4E5-EC25-40D8-BB57-B33A27C234CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A4335E4-0198-4777-9409-64E22F1F8F2C}
+	EndGlobalSection
+EndGlobal
