@@ -30,7 +30,6 @@
 
 	<ItemGroup>
 	  <None Remove="App_Plugins\Our.Umbraco.AnimateOnScroll\Css\animateonscroll.css" />
-	  <None Remove="App_Plugins\Our.Umbraco.AnimateOnScroll\Js\services.js" />
 	  <None Remove="App_Plugins\Our.Umbraco.AnimateOnScroll\Js\editor.controller.js" />
 	  <None Remove="App_Plugins\Our.Umbraco.AnimateOnScroll\Views\editor.html" />
 	  <Compile Include="Models\Animation.cs" />
