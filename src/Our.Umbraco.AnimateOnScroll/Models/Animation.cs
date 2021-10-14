@@ -1,10 +1,7 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
+using Microsoft.AspNetCore.Html;
 
 namespace Our.Umbraco.AnimateOnScroll.Models
 {
@@ -64,7 +61,7 @@ namespace Our.Umbraco.AnimateOnScroll.Models
             );
         }
 
-        public IHtmlString ToHtml()
+        public IHtmlContent ToHtml()
         {
             return new HtmlString(ToString());
         }

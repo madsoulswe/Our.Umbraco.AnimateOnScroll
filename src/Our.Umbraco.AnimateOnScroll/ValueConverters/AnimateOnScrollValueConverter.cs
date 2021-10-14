@@ -1,13 +1,9 @@
 ﻿using Newtonsoft.Json.Linq;
 using Our.Umbraco.AnimateOnScroll.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Umbraco.Core;
-using Umbraco.Core.Models.PublishedContent;
-using Umbraco.Core.PropertyEditors;
+using Umbraco.Cms.Core.Models.PublishedContent;
+using Umbraco.Cms.Core.PropertyEditors;
+using Umbraco.Extensions;
 
 namespace Our.Umbraco.AnimateOnScroll.ValueConverters
 {
