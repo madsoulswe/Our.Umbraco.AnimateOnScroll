@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
+	  <TargetFrameworks>net472;net5.0</TargetFrameworks>
     <RootNamespace>Our.Umbraco.AnimateOnScroll</RootNamespace>
 
 		<IncludeContentInPack>true</IncludeContentInPack>
@@ -15,10 +15,14 @@
 
 	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="UmbracoCms.Web" Version="8.6.2" />
-  </ItemGroup>
-
+	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+		<PackageReference Include="UmbracoCms.Core" Version="8.7.1" />
+		<PackageReference Include="UmbracoCms.Web" Version="8.7.1" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="9.0.0" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.0.0" />
+	</ItemGroup>
 	<ItemGroup>
 		<Content Include="App_Plugins\**\*" />
 		<Compile Remove="**\*" />
@@ -33,6 +37,7 @@
 	  <None Remove="App_Plugins\Our.Umbraco.AnimateOnScroll\Js\editor.controller.js" />
 	  <None Remove="App_Plugins\Our.Umbraco.AnimateOnScroll\Views\editor.html" />
 	  <Compile Include="Models\Animation.cs" />
+	  <Compile Include="TagHelpers\AOSTagHelper.cs" />
 	  <Compile Include="ValueConverters\AnimateOnScrollValueConverter.cs" />
 	  <None Include="..\..\icon.png">
 	    <Pack>True</Pack>

@@ -6,21 +6,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
+#if NET472
+#elif NET5_0
+using Microsoft.AspNetCore.Html;
+#endif
+
 namespace Our.Umbraco.AnimateOnScroll.Models
 {
     public class Animation
     {
         [JsonProperty("animation")]
-        public string Type { get; set; }
+        public string Type { get; set; } = "";
 
         [JsonProperty("duration")]
         public int Duration { get; set; } = 0;
 
         [JsonProperty("offset")]
-        public int Offset { get; set; }
+        public int Offset { get; set; } = 0;
 
         [JsonProperty("delay")]
-        public int Delay { get; set; }
+        public int Delay { get; set; } = 0;
 
         [JsonProperty("easing")]
         public string Easing { get; set; }
@@ -64,9 +69,18 @@ namespace Our.Umbraco.AnimateOnScroll.Models
             );
         }
 
+
+
+#if NET472
         public IHtmlString ToHtml()
         {
             return new HtmlString(ToString());
         }
+#elif NET5_0
+        public IHtmlContent ToHtml()
+        {
+            return new HtmlString(ToString());
+        }
+#endif
     }
 }
