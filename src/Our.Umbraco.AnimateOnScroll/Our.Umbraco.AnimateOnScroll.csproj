@@ -37,7 +37,6 @@
 	  <None Remove="App_Plugins\Our.Umbraco.AnimateOnScroll\Js\editor.controller.js" />
 	  <None Remove="App_Plugins\Our.Umbraco.AnimateOnScroll\Views\editor.html" />
 	  <Compile Include="Models\Animation.cs" />
-	  <Compile Include="TagHelpers\AOSTagHelper.cs" />
 	  <Compile Include="ValueConverters\AnimateOnScrollValueConverter.cs" />
 	  <None Include="..\..\icon.png">
 	    <Pack>True</Pack>

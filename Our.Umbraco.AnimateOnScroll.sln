@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Develop", "Develop", "{61E3
 		readme.md = readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Our.Umbraco.AnimateOnScroll.SiteV9", "".websiteV9\Our.Umbraco.AnimateOnScroll.SiteV9.csproj", "{961E40D2-F1EA-4F61-B845-70F7AE58A0C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Umbraco.AnimateOnScroll.SiteV9", ".websiteV9\Our.Umbraco.AnimateOnScroll.SiteV9.csproj", "{961E40D2-F1EA-4F61-B845-70F7AE58A0C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
