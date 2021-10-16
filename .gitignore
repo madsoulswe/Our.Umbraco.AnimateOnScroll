@@ -320,3 +320,4 @@ $RECYCLE.BIN/
 *.lnk
 
 Output
+.websiteV9/appsettings.json
