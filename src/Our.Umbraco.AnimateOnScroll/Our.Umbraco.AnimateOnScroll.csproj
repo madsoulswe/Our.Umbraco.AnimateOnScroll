@@ -47,4 +47,10 @@
 	<ItemGroup>
 	  <Folder Include="App_Plugins\Our.Umbraco.AnimateOnScroll\Vendor\" />
 	</ItemGroup>
+
+	<Target Name="RemoveLoggingAnalyzer" BeforeTargets="CoreCompile">
+		<ItemGroup>
+			<Analyzer Remove="@(Analyzer)" Condition="%(FileName) == 'Lucene.Net.CodeAnalysis.CSharp'" />
+		</ItemGroup>
+	</Target>
 </Project>
