@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Our.Umbraco.AnimateOnScroll.Models;
 using System;
 using System.Collections.Generic;
@@ -6,8 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Umbraco.Core;
+
+
+#if NET472
 using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Core.PropertyEditors;
+#elif NET5_0
+using Umbraco.Cms.Core.PropertyEditors;
+using Umbraco.Cms.Core.Models.PublishedContent;
+using Umbraco.Extensions;
+#endif
 
 namespace Our.Umbraco.AnimateOnScroll.ValueConverters
 {
@@ -24,9 +33,10 @@ namespace Our.Umbraco.AnimateOnScroll.ValueConverters
             if (!sourceString.DetectIsJson())
                 return null;
 
-            var data = JObject.Parse(sourceString);
-
-            return data.ToObject<Animation>();
+            return JsonConvert.DeserializeObject<Animation>(sourceString, new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore
+            });
         }
         public override bool IsConverter(IPublishedPropertyType propertyType)
         {

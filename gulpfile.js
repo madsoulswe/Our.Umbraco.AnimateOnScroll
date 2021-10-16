@@ -34,8 +34,6 @@ const appPlugin = {
 
 function copy(path, baseFolder, target) {
 
-    console.log('copy: \x1b[36m%s\x1b[0m %s', path, target);  
-
     return src(path, { base: baseFolder })
         .pipe(dest(target));
 }
@@ -43,16 +41,14 @@ function copy(path, baseFolder, target) {
 
 function watchAppPlugins() {
 
-    console.log()
-    console.log('Watching : ' + appPlugin.source);
-    console.log('Target   : ' + appPlugin.dest);
-
     watch(appPlugin.source, { ignoreInitial: false })
         .on('change', function (path, stats) {
-            copy(path, appPlugin.src, appPlugin.dest)
+            copy(path, appPlugin.src, config.site + appPluginPath)
+            copy(path, appPlugin.src, config.site + "V9" + appPluginPath)
         })
         .on('add', function (path, stats) {
-            copy(path, appPlugin.src, appPlugin.dest)
+            copy(path, appPlugin.src, config.site + appPluginPath)
+            copy(path, appPlugin.src, config.site + "V9" + appPluginPath)
         });
 }
 
