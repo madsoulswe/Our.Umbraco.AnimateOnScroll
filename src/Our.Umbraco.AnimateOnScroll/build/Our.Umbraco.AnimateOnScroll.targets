@@ -1,0 +1,29 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <AnimateOnScrollContentFilesPath>
+        $(MSBuildThisFileDirectory)..\content\App_Plugins\Our.Umbraco.AnimateOnScroll\**\*.*
+    </AnimateOnScrollContentFilesPath>
+  </PropertyGroup>
+  <Target Name="CopyAnimateOnScrollAssets" BeforeTargets="Build">
+    <ItemGroup>
+      <AnimateOnScrollContentFiles Include="$(AnimateOnScrollContentFilesPath)" />
+    </ItemGroup>
+    <Message
+        Text="Copying AnimateOnScroll files: $(AnimateOnScrollContentFilesPath) - #@(AnimateOnScrollContentFiles->Count()) files"
+        Importance="high" />
+    <Copy SourceFiles="@(AnimateOnScrollContentFiles)"
+            DestinationFiles="@(AnimateOnScrollContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\Our.Umbraco.AnimateOnScroll\%(RecursiveDir)%(Filename)%(Extension)')"
+            SkipUnchangedFiles="true" />
+
+  </Target>
+
+  <Target Name="ClearAnimateOnScrollAssets" BeforeTargets="Clean">
+    <ItemGroup>
+      <AnimateOnScrollDir
+          Include="$(MSBuildProjectDirectory)\App_Plugins\Our.Umbraco.AnimateOnScroll\" />
+    </ItemGroup>
+    <Message Text="Clear old AnimateOnScroll data"  Importance="high" />
+    <RemoveDir Directories="@(AnimateOnScrollDir)"  />
+  </Target>
+
+</Project>

@@ -12,7 +12,7 @@
 		<RepositoryType>GIT</RepositoryType>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/madsoulswe/Our.Umbraco.AnimateOnScroll/</PackageProjectUrl>
-
+	  <IsPackable>True</IsPackable>
 	</PropertyGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
@@ -24,8 +24,15 @@
 		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.0.0" />
 	</ItemGroup>
 	<ItemGroup>
-		<Content Include="App_Plugins\**\*" />
+		<Content Include="App_Plugins\**\*.*">
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+		</Content>
 		<Compile Remove="**\*" />
+		<None Include="build\**\*.*">
+			<Pack>True</Pack>
+			<PackagePath>buildTransitive</PackagePath>
+		</None>
 	</ItemGroup>
 
 	<ItemGroup>
