@@ -1,0 +1,21 @@
+{
+  "propertyEditors": [
+    {
+      "alias": "Our.Umbraco.AnimateOnScroll",
+      "name": "AnimateOnScroll",
+      "icon": "icon-document-dashed-line",
+      "hideLabel": true,
+      "editor": {
+        "view": "~/App_Plugins/Our.Umbraco.AnimateOnScroll/Views/editor.html",
+        "valueType": "JSON"
+      }
+    }
+
+  ],
+  "javascript": [
+    "~/App_Plugins/Our.Umbraco.AnimateOnScroll/Js/editor.controller.js"
+  ],
+  "css": [
+    "~/App_Plugins/Our.Umbraco.AnimateOnScroll/Css/AnimateOnScroll.css"
+  ]
+}

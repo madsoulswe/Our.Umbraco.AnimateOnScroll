@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "gulp"
   },
-  "author": "Dennis Öhman",
+  "author": "Dennis Ã–hman",
   "license": "ISC",
   "private": true,
   "devDependencies": {

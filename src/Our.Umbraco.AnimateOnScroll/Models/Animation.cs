@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-#if NET472
-#elif NET5_0
+#if NETFRAMEWORK
+#else
 using Microsoft.AspNetCore.Html;
 #endif
 
@@ -71,12 +71,12 @@ namespace Our.Umbraco.AnimateOnScroll.Models
 
 
 
-#if NET472
+#if NETFRAMEWORK
         public IHtmlString ToHtml()
         {
             return new HtmlString(ToString());
         }
-#elif NET5_0
+#else
         public IHtmlContent ToHtml()
         {
             return new HtmlString(ToString());

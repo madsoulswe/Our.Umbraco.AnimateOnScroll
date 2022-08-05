@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30128.74
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Our.Umbraco.AnimateOnScroll.Site", ".website\Our.Umbraco.AnimateOnScroll.Site.csproj", "{38D15609-6F2E-4A85-A2F4-7BA082F20304}"
 EndProject
@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Develop", "Develop", "{61E3
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Our.Umbraco.AnimateOnScroll.SiteV9", ".websiteV9\Our.Umbraco.AnimateOnScroll.SiteV9.csproj", "{961E40D2-F1EA-4F61-B845-70F7AE58A0C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Our.Umbraco.AnimateOnScroll.SiteV10", ".websiteV10\Our.Umbraco.AnimateOnScroll.SiteV10.csproj", "{B96B76A1-98E3-4866-8AAD-2C27ACC6AADA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{961E40D2-F1EA-4F61-B845-70F7AE58A0C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{961E40D2-F1EA-4F61-B845-70F7AE58A0C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{961E40D2-F1EA-4F61-B845-70F7AE58A0C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B96B76A1-98E3-4866-8AAD-2C27ACC6AADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B96B76A1-98E3-4866-8AAD-2C27ACC6AADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B96B76A1-98E3-4866-8AAD-2C27ACC6AADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B96B76A1-98E3-4866-8AAD-2C27ACC6AADA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

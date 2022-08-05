@@ -45,10 +45,12 @@ function watchAppPlugins() {
         .on('change', function (path, stats) {
             copy(path, appPlugin.src, config.site + appPluginPath)
             copy(path, appPlugin.src, config.site + "V9" + appPluginPath)
+            copy(path, appPlugin.src, config.site + "V10" + appPluginPath)
         })
         .on('add', function (path, stats) {
             copy(path, appPlugin.src, config.site + appPluginPath)
             copy(path, appPlugin.src, config.site + "V9" + appPluginPath)
+            copy(path, appPlugin.src, config.site + "V10" + appPluginPath)
         });
 }
 

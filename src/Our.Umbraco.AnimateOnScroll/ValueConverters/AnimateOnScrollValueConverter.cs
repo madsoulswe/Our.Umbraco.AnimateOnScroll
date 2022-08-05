@@ -6,13 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+
+
+#if NETFRAMEWORK
 using Umbraco.Core;
-
-
-#if NET472
 using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Core.PropertyEditors;
-#elif NET5_0
+#else
 using Umbraco.Cms.Core.PropertyEditors;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Extensions;

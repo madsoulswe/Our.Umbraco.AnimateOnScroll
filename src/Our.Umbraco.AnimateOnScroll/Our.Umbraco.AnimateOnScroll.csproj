@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFrameworks>net472;net5.0</TargetFrameworks>
+	  <TargetFrameworks>net472;net5.0;net6.0</TargetFrameworks>
     <RootNamespace>Our.Umbraco.AnimateOnScroll</RootNamespace>
 
 		<IncludeContentInPack>true</IncludeContentInPack>
@@ -23,6 +23,10 @@
 		<PackageReference Include="Umbraco.Cms.Web.Website" Version="9.0.0" />
 		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.0.0" />
 	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="10.0.0" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.0.0" />
+	</ItemGroup>
 	<ItemGroup>
 		<Content Include="App_Plugins\**\*.*">
 			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
@@ -33,10 +37,6 @@
 			<Pack>True</Pack>
 			<PackagePath>buildTransitive</PackagePath>
 		</None>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Compile Include="Controllers\**\*" />
 	</ItemGroup>
 
 	<ItemGroup>
