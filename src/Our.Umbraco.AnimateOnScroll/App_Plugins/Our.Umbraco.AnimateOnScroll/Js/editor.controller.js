@@ -156,6 +156,13 @@
 			return deferred.promise;
 		}
 
+
+		$scope.$watch(function () {
+			return $scope.model.value;
+		}, function () {
+			vm.testAnimation();
+		}, true);
+
 		vm.init();
     }
 
