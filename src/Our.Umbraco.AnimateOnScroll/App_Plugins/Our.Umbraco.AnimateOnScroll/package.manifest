@@ -16,6 +16,6 @@
     "~/App_Plugins/Our.Umbraco.AnimateOnScroll/Js/editor.controller.js"
   ],
   "css": [
-    "~/App_Plugins/Our.Umbraco.AnimateOnScroll/Css/AnimateOnScroll.css"
+    "~/App_Plugins/Our.Umbraco.AnimateOnScroll/Css/animateonscroll.css"
   ]
 }
