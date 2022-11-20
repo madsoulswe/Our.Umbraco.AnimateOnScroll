@@ -16,7 +16,7 @@
 		<RepositoryType>GIT</RepositoryType>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/madsoulswe/Our.Umbraco.AnimateOnScroll/</PackageProjectUrl>
-	  <PackageTags>umbraco,menu,treemenu,umbraco-marketplace</PackageTags>
+	  <PackageTags>umbraco,animateonscroll,umbraco-marketplace</PackageTags>
 	  <IsPackable>True</IsPackable>
 	</PropertyGroup>
 
