@@ -2,16 +2,21 @@
 
   <PropertyGroup>
 	  <TargetFrameworks>net472;net5.0;net6.0</TargetFrameworks>
-    <RootNamespace>Our.Umbraco.AnimateOnScroll</RootNamespace>
+		<RootNamespace>Our.Umbraco.AnimateOnScroll</RootNamespace>
 
 		<IncludeContentInPack>true</IncludeContentInPack>
 		<ContentTargetFolders>content</ContentTargetFolders>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<Authors>Dennis Öhman</Authors>
+		<Company>Björnmamman AB Sweden</Company>
+
+		<Description>Simple editor for AnimateOnScroll.js library</Description>
 		<PackageIcon>icon.png</PackageIcon>
 		<RepositoryUrl>https://github.com/madsoulswe/Our.Umbraco.AnimateOnScroll/</RepositoryUrl>
 		<RepositoryType>GIT</RepositoryType>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/madsoulswe/Our.Umbraco.AnimateOnScroll/</PackageProjectUrl>
+	  <PackageTags>umbraco,menu,treemenu,umbraco-marketplace</PackageTags>
 	  <IsPackable>True</IsPackable>
 	</PropertyGroup>
 
