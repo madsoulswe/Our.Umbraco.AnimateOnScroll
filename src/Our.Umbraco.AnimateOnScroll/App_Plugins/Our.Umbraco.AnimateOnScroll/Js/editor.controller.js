@@ -93,7 +93,7 @@
 		}
 
 		vm.remove = function () {
-			delete $scope.model.value;
+			$scope.model.value = null;
 
 			vm.edit = false;
 		}
@@ -132,6 +132,9 @@
 		}
 
 		vm.canAnimate = function () {
+			if (!$scope.model.value || $scope.model.value == null)
+				return false;
+
 			return $scope.model.value.animation && $scope.model.value.animation != '' && $scope.model.value.duration && $scope.model.value.duration != '' && parseInt($scope.model.value.duration, 10) > 0;
 		}
 
