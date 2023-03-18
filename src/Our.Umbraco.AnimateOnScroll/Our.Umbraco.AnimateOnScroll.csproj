@@ -17,6 +17,7 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/madsoulswe/Our.Umbraco.AnimateOnScroll/</PackageProjectUrl>
 	  <PackageTags>umbraco,animateonscroll,umbraco-marketplace</PackageTags>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
 	  <IsPackable>True</IsPackable>
 	</PropertyGroup>
 
@@ -33,6 +34,10 @@
 		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.0.0" />
 	</ItemGroup>
 	<ItemGroup>
+		<None Include="..\..\README.md">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
 		<Content Include="App_Plugins\**\*.*">
 			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
