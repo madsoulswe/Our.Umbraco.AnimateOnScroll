@@ -150,7 +150,6 @@ export class OurAnimateOnScrollPropertyEditorElement extends LitElement {
                 <uui-input
                     type="number"
                     label=${label}
-                    class="input-number"
                     step="1"
                     min=${min ?? nothing}
                     max=${max ?? nothing}
@@ -164,18 +163,15 @@ export class OurAnimateOnScrollPropertyEditorElement extends LitElement {
 
     #renderToggle(label, key, description) {
         return html`
-            <div class="control-group">
-                <div class="control-header">
-                    <label>${label}</label>
-                    ${description ? html`<small>${description}</small>` : nothing}
-                </div>
+            <label class="toggle-item" title=${description ?? nothing}>
                 <uui-toggle
                     label=${label}
                     ?disabled=${this.readonly}
                     ?checked=${!!this.value?.[key]}
                     @change=${(e) => this.#onToggle(key, e)}>
+                    ${label}
                 </uui-toggle>
-            </div>
+            </label>
         `;
     }
 
@@ -210,14 +206,13 @@ export class OurAnimateOnScrollPropertyEditorElement extends LitElement {
     }
 
     #renderDemo() {
-        if (!this.#canAnimate()) return nothing;
-
-        const v = this.value;
+        const v = this.value ?? {};
+        const active = this.#canAnimate();
 
         return html`
             <div
-                class="demo-box aos-init ${this._animating ? 'aos-animate' : ''}"
-                data-aos=${this._animate ? v.animation : ''}
+                class="demo-box aos-init ${this._animating ? 'aos-animate' : ''} ${active ? '' : 'inactive'}"
+                data-aos=${active && this._animate ? v.animation : ''}
                 data-aos-duration=${v.duration ?? nothing}
                 data-aos-delay=${v.delay ?? nothing}
                 data-aos-easing=${v.easing || nothing}>
@@ -233,33 +228,28 @@ export class OurAnimateOnScrollPropertyEditorElement extends LitElement {
             ${this.value && this._edit
                 ? html`
                     <div class="animation-form">
-                        <uui-box class="animation-settings">
-                            ${this.#renderSelect('Animation', 'animation', ANIMATIONS)}
-                            ${this.#renderSelect('Easing', 'easing', EASINGS)}
+                        <uui-box class="animation-settings" headline="Settings">
+                            <div class="grid grid-2">
+                                ${this.#renderSelect('Animation', 'animation', ANIMATIONS)}
+                                ${this.#renderSelect('Easing', 'easing', EASINGS)}
+                            </div>
                             ${this.#renderSelect('Anchor', 'anchor', ANCHORS, 'Defines which position of the element regarding to window should trigger the animation')}
-                            ${this.#renderNumber('Duration', 'duration', 'Values from 0 to 3000, with step 50ms', 0, 3000)}
-                            ${this.#renderNumber('Delay', 'delay', 'Values from 0 to 3000, with step 50ms', 0, 3000)}
-                            ${this.#renderNumber('Offset', 'offset', 'Offset (in px) from the original trigger point')}
-                            ${this.#renderToggle('Mirror', 'mirror', 'Whether elements should animate out while scrolling past them')}
-                            ${this.#renderToggle('Once', 'once', 'Whether animation should happen only once - while scrolling down')}
-                            ${this.#renderToggle('Disabled', 'disabled')}
-
-                            ${this.#canAnimate()
-                                ? html`
-                                    <uui-button
-                                        class="w-100"
-                                        look="secondary"
-                                        label="Test animation"
-                                        @click=${this.#testAnimation}>
-                                        Test animation
-                                    </uui-button>`
-                                : nothing}
+                            <div class="grid grid-3">
+                                ${this.#renderNumber('Duration (ms)', 'duration', '0 – 3000, step 50', 0, 3000)}
+                                ${this.#renderNumber('Delay (ms)', 'delay', '0 – 3000, step 50', 0, 3000)}
+                                ${this.#renderNumber('Offset (px)', 'offset', 'From trigger point')}
+                            </div>
+                            <div class="toggles">
+                                ${this.#renderToggle('Mirror', 'mirror', 'Whether elements should animate out while scrolling past them')}
+                                ${this.#renderToggle('Once', 'once', 'Whether animation should happen only once - while scrolling down')}
+                                ${this.#renderToggle('Disabled', 'disabled')}
+                            </div>
 
                             <hr />
 
                             <uui-button
                                 class="w-100"
-                                look="primary"
+                                look="outline"
                                 color="danger"
                                 label="Remove animation"
                                 ?disabled=${this.readonly}
@@ -268,7 +258,17 @@ export class OurAnimateOnScrollPropertyEditorElement extends LitElement {
                             </uui-button>
                         </uui-box>
 
-                        <uui-box class="animation-demo">${this.#renderDemo()}</uui-box>
+                        <uui-box class="animation-demo" headline="Preview">
+                            <div class="demo-stage">${this.#renderDemo()}</div>
+                            <uui-button
+                                class="w-100"
+                                look="secondary"
+                                label="Replay animation"
+                                ?disabled=${!this.#canAnimate()}
+                                @click=${this.#testAnimation}>
+                                <uui-icon name="icon-refresh"></uui-icon> Replay animation
+                            </uui-button>
+                        </uui-box>
                     </div>`
                 : nothing}
         `;
@@ -277,6 +277,7 @@ export class OurAnimateOnScrollPropertyEditorElement extends LitElement {
     static styles = css`
         :host {
             display: block;
+            --uui-box-default-padding: 18px;
         }
 
         .animation-form {
@@ -290,16 +291,38 @@ export class OurAnimateOnScrollPropertyEditorElement extends LitElement {
             flex: 1 1 50%;
         }
 
-        .animation-demo {
+        .grid {
+            display: grid;
+            gap: var(--uui-size-space-4, 12px);
+        }
+
+        .grid-2 { grid-template-columns: 1fr 1fr; }
+        .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+        .toggles {
+            display: flex;
+            gap: var(--uui-size-space-3, 9px);
+            flex-wrap: wrap;
+        }
+
+        .toggle-item {
             display: flex;
             align-items: center;
-            justify-content: center;
+            padding: var(--uui-size-space-2, 6px) var(--uui-size-space-4, 12px);
+            border: 1px solid var(--uui-color-border, #d8d7d9);
+            border-radius: var(--uui-border-radius, 3px);
+            cursor: pointer;
         }
 
         .control-group {
             margin-bottom: var(--uui-size-space-4, 12px);
             display: flex;
             flex-direction: column;
+        }
+
+        .control-group uui-input,
+        .control-group uui-select {
+            width: 100%;
         }
 
         .control-header label {
@@ -311,10 +334,6 @@ export class OurAnimateOnScrollPropertyEditorElement extends LitElement {
             display: block;
             color: var(--uui-color-text-alt, #68676b);
             margin-bottom: 4px;
-        }
-
-        .input-number {
-            width: 120px;
         }
 
         .w-100 {
@@ -329,6 +348,20 @@ export class OurAnimateOnScrollPropertyEditorElement extends LitElement {
 
         /* Demo box base styling; the animations themselves come from the AOS
            stylesheet linked in the shadow root (data-aos attributes). */
+        .demo-stage {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 260px;
+            height: calc(100% - 50px);
+            margin-bottom: var(--uui-size-space-4, 12px);
+            border-radius: var(--uui-border-radius, 3px);
+            background-color: var(--uui-color-surface-alt, #f4f4f4);
+            background-image: radial-gradient(var(--uui-color-border, #d8d7d9) 1px, transparent 1px);
+            background-size: 16px 16px;
+            overflow: hidden;
+        }
+
         .demo-box {
             width: 100px;
             height: 100px;
@@ -340,6 +373,10 @@ export class OurAnimateOnScrollPropertyEditorElement extends LitElement {
             border-radius: 3px;
             font-size: 40px;
             pointer-events: none;
+        }
+
+        .demo-box.inactive {
+            opacity: 0.25;
         }
     `;
 }
