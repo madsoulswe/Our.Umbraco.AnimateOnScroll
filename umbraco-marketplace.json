@@ -15,6 +15,12 @@
     ],
     "SyncContributorsFromRepository": true
   },
+  "Screenshots": [
+    {
+      "ImageUrl": "https://raw.githubusercontent.com/madsoulswe/Our.Umbraco.AnimateOnScroll/refs/heads/master/previews/preview-1.PNG",
+      "Caption": "Screenshot of the AnimateOnScroll package in action."
+    }
+  ],
   "Category": "Developer Tools",
   "Description": "Animate element on your page as you scroll.",
   "DiscussionForumUrl": "https://github.com/madsoulswe/Our.Umbraco.AnimateOnScroll/issues",
