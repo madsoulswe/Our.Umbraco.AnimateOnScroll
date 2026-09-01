@@ -46,11 +46,13 @@ function watchAppPlugins() {
             copy(path, appPlugin.src, config.site + appPluginPath)
             copy(path, appPlugin.src, config.site + "V9" + appPluginPath)
             copy(path, appPlugin.src, config.site + "V10" + appPluginPath)
+            copy(path, appPlugin.src, config.site + "V17" + appPluginPath)
         })
         .on('add', function (path, stats) {
             copy(path, appPlugin.src, config.site + appPluginPath)
             copy(path, appPlugin.src, config.site + "V9" + appPluginPath)
             copy(path, appPlugin.src, config.site + "V10" + appPluginPath)
+            copy(path, appPlugin.src, config.site + "V17" + appPluginPath)
         });
 }
 

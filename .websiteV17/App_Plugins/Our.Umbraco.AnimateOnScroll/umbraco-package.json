@@ -1,0 +1,30 @@
+{
+  "$schema": "https://raw.githubusercontent.com/umbraco/Umbraco-CMS/contrib/src/Umbraco.Web.UI.Client/umbraco-package-schema.json",
+  "name": "Our.Umbraco.AnimateOnScroll",
+  "version": "2.0.0",
+  "allowPublicAccess": false,
+  "extensions": [
+    {
+      "type": "propertyEditorSchema",
+      "name": "AnimateOnScroll Schema",
+      "alias": "Our.Umbraco.AnimateOnScroll",
+      "meta": {
+        "defaultPropertyEditorUiAlias": "Our.Umbraco.AnimateOnScroll.EditorUi"
+      }
+    },
+    {
+      "type": "propertyEditorUi",
+      "alias": "Our.Umbraco.AnimateOnScroll.EditorUi",
+      "name": "AnimateOnScroll Property Editor UI",
+      "element": "/App_Plugins/Our.Umbraco.AnimateOnScroll/Js/animateonscroll-editor.js",
+      "elementName": "our-animateonscroll-property-editor",
+      "meta": {
+        "label": "AnimateOnScroll",
+        "icon": "icon-document-dashed-line",
+        "group": "common",
+        "propertyEditorSchemaAlias": "Our.Umbraco.AnimateOnScroll",
+        "supportsReadOnly": true
+      }
+    }
+  ]
+}

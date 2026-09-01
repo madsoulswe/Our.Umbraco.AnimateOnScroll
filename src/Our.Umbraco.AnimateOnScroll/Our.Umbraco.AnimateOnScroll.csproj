@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFrameworks>net472;net5.0;net6.0;net7.0;net8.0</TargetFrameworks>
+	  <TargetFrameworks>net472;net5.0;net6.0;net7.0;net8.0;net10.0</TargetFrameworks>
 		<RootNamespace>Our.Umbraco.AnimateOnScroll</RootNamespace>
 
 		<IncludeContentInPack>true</IncludeContentInPack>
@@ -43,6 +43,12 @@
 		<PackageReference Include="Umbraco.Cms.Web.Website" Version="[13.0,14)" />
 		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[13.0,14)" />
 	</ItemGroup>
+
+	<!-- Umbraco 17 (LTS) and 18 run on .NET 10. The AngularJS backoffice is gone, so only Web.Common is needed;
+	     the backoffice editor is the Lit-based extension declared in App_Plugins umbraco-package.json. -->
+	<ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+		<PackageReference Include="Umbraco.Cms.Web.Common" Version="[17.0.0,19)" />
+	</ItemGroup>
 	<ItemGroup>
 		<None Include="..\..\README.md">
 			<Pack>True</Pack>
@@ -63,8 +69,11 @@
 	  <None Remove="App_Plugins\Our.Umbraco.AnimateOnScroll\Css\animateonscroll.css" />
 	  <None Remove="App_Plugins\Our.Umbraco.AnimateOnScroll\Js\editor.controller.js" />
 	  <None Remove="App_Plugins\Our.Umbraco.AnimateOnScroll\Views\editor.html" />
+	  <None Remove="App_Plugins\Our.Umbraco.AnimateOnScroll\umbraco-package.json" />
+	  <None Remove="App_Plugins\Our.Umbraco.AnimateOnScroll\Js\animateonscroll-editor.js" />
 	  <Compile Include="Models\Animation.cs" />
 	  <Compile Include="ValueConverters\AnimateOnScrollValueConverter.cs" />
+	  <Compile Include="PropertyEditors\AnimateOnScrollDataEditor.cs" />
 	  <None Include="..\..\icon.png">
 	    <Pack>True</Pack>
 	    <PackagePath></PackagePath>
