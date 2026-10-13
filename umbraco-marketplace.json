@@ -29,8 +29,8 @@
   "IssueTrackerUrl": "https://github.com/madsoulswe/Our.Umbraco.AnimateOnScroll/issues",
   "IsSubPackageOf": "",
   "PackageType": "Package",
-  "PackagesByAuthor": ["Our.Umbraco.SimpleTreeMenu", "Our.Umbraco.Honeypot"],
+  "PackagesByAuthor": ["Our.Umbraco.SimpleTreeMenu", "Our.Umbraco.AnimateOnScroll", "Our.Umbraco.MailSettings", "Our.Umbraco.Honeypot"],
   "Tags": ["AnimateOnScroll", "AOS", "Animate", "Animation"],
-  "Title": "Umbraco Honeypot",
+  "Title": "Animate On Scroll",
   "VideoUrl": ""
 }

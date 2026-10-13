@@ -11,6 +11,8 @@ Based on https://github.com/michalsnik/aos
 | 9 – 13 | .NET 5 – 8 | AngularJS (package.manifest) |
 | 17 – 18 | .NET 10 | Lit web component (umbraco-package.json) |
 
+<img width="1299" height="533" alt="image" src="https://github.com/user-attachments/assets/8aff97f5-ee30-4e6e-a7be-87c9cb209596" />
+
 ### Usage / Installation
 
 #### Step 1, umbraco:
