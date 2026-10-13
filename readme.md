@@ -3,6 +3,14 @@
 Animate element on your page as you scroll.
 Based on https://github.com/michalsnik/aos
 
+### Supported versions
+
+| Umbraco | .NET | Backoffice editor |
+|---|---|---|
+| 8 | .NET Framework 4.7.2 | AngularJS (package.manifest) |
+| 9 – 13 | .NET 5 – 8 | AngularJS (package.manifest) |
+| 17 – 18 | .NET 10 | Lit web component (umbraco-package.json) |
+
 ### Usage / Installation
 
 #### Step 1, umbraco:
