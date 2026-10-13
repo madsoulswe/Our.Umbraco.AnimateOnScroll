@@ -52,12 +52,18 @@ namespace Our.Umbraco.AnimateOnScroll.ValueConverters
             });
 #endif
         }
+
+
         public override bool IsConverter(IPublishedPropertyType propertyType)
         {
-            return propertyType.EditorAlias == "Our.Umbraco.AnimateOnScroll";
-        }
+#if NET10_0_OR_GREATER
+			return propertyType.EditorUiAlias.StartsWith("Our.Umbraco.AnimateOnScroll");
+#else
+			return propertyType.EditorAlias == "Our.Umbraco.AnimateOnScroll";
+#endif
+		}
 
-        public override Type GetPropertyValueType(IPublishedPropertyType propertyType) => typeof(Animation);
+		public override Type GetPropertyValueType(IPublishedPropertyType propertyType) => typeof(Animation);
 
         public override PropertyCacheLevel GetPropertyCacheLevel(IPublishedPropertyType propertyType) => PropertyCacheLevel.Snapshot;
     }
